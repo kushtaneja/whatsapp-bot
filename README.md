@@ -30,7 +30,7 @@ Eg: $ export PATH=$PATH:/home/harshit/Desktop/WhatsAppBot
 ```
 Step 5: run whatsapp.py using Python3
 ```sh
-$ python3 whatsapp.py
+$ python3 whatsapp_bot.py
 ```
 Step 6: When the browser is opened web.whatsapp.com will be opened and will ask to scan a QR code when you it first time
 

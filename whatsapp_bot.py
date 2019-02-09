@@ -20,6 +20,8 @@ options.add_argument('--disable-browser-side-navigation')
 driver = webdriver.Chrome(chrome_options=options, executable_path='/usr/lib/chromium-browser/chromedriver')
 driver.get("https://web.whatsapp.com/") 
 
+  
+
 wait = WebDriverWait(driver, 20)
 wait.until(EC.presence_of_element_located((
         By.CLASS_NAME, 'iHhHL'
@@ -69,7 +71,6 @@ while i<len(namelist) :
 		input_box = wait.until(EC.presence_of_element_located((
 		    By.XPATH, inp_xpath)))
 		time.sleep(1)
-
 		# Send message
 		# taeget is your target Name and msgToSend is you message
 		input_box.send_keys(message)

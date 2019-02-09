@@ -19,9 +19,6 @@ input("Scan the QR code and wait the page to load then press Enter")
   
 
 time.sleep(10)
-#driver.find_element_by_xpath("//*[@id='side']/div[1]/div/label/input").click()
-#driver.find_element_by_xpath("//*[@id='side']/div[1]/div/label/input").send_keys(target)
-#time.sleep(10)
 wait5 = WebDriverWait(driver, 5)
 wait = WebDriverWait(driver, 20)
 x_arg = '//span[contains(@title,' + target + ')]'
@@ -70,12 +67,3 @@ time.sleep(10)
 input_box.send_keys(Keys.ENTER)
 print("Successfully Send Message to : "+ target + '\n')
 time.sleep(0.5)
-
-# except:
-#     # If target Not found Add it to the failed List
-#     print("Cannot find Target: " + target)
-#     pass
-
-# driver.find_element_by_xpath("//*[@id='pane-side']/div/div/div/div[6]/div/div/div[2]/div[1]/div[1]/span/span/span").click()
-# driver.find_element_by_class_name("_2S1VP").click()
-# driver.find_element_by_class_name("_35EW6").click()

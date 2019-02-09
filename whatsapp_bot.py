@@ -5,9 +5,6 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By 
 import time 
 import csv
-# Replace below path with the absolute path 
-# to chromedriver in your computer 
-
 namelist=[]
 with open("Names.csv") as f:
     for row in f:

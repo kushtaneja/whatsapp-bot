@@ -1,0 +1,42 @@
+from selenium import webdriver 
+from selenium.webdriver.support.ui import WebDriverWait 
+from selenium.webdriver.support import expected_conditions as EC 
+from selenium.webdriver.common.keys import Keys 
+from selenium.webdriver.common.by import By 
+import time 
+
+a = {u'WAToken1': u'"AIZEwoVNh15B4VzPIyiDtK1ETCD12BZJeMMdqIzfVE0="', u'2Uls+st8KOZKAlLNKbVILw==': u'[{"id":"global_mute","expiration":0}]', u'storage_test': u'storage_test', u'WAToken2': u'"1@Z9s0MbwlNUZZJH4F/K6tqrXpdCDwwpuEOkm4IGkNcwYmXApknvMetrszaS/2fwf1kaUUOLavcwbUWQ=="', u'WALangPref': u'"en"', u'WASecretBundle': u'{"key":"F7u0kkIM1RBsh69YXnESMA7911ZoL3j8fqddSGJ/HNQ=","encKey":"8vMElv75EkyAAH5VpOmteL8fAofmpeWPkhiy5EiAbzk=","macKey":"F7u0kkIM1RBsh69YXnESMA7911ZoL3j8fqddSGJ/HNQ="}', u'last-wid': u'"919108904691@c.us"', u'ZXcdCxVHkMhU1JvJbvN9pQ==': u'false', u'logout-token': u'"1@gpdmIi0fOjZZKVJ3PihwBkUp8CuBAHzTcdSWNAPvl3wxmHiFwiVtoOV6kb6u8WUYrICa4mjGLRCYsczBy495nt/inMXoNR82NppHid4AiPAWCnKDt718LRjMcDxDVyEIQXzeT0I5xPdch/5Aqz1m5Q=="', u'X8ahjfhRZepedxYLR9oOZQ==': u'"note.m4r"', u'ps7fTp/NEON3Q1UJoMLw9g==': u'false', u'whatsapp-mutex': u'"x471154172:init_1549892742238"', u'Dexie.DatabaseNames': u'["wawc"]', u'B5/ZHwUThP1mYU2nnsFF4Q==': u'false', u'remember-me': u'true', u'WABrowserId': u'"c9NA+yQzwgUdFVQuNwv0Tw=="', u'mobile-platform': u'"smba"', u'ASvDGz3FYse4HogUrB/0BA==': u'false', u'debugCursor': u'198'}
+dump = str(a)
+
+options = webdriver.ChromeOptions()
+options.add_argument("--start-maximized")
+options.add_argument('--disable-browser-side-navigation')
+driver = webdriver.Chrome(chrome_options=options, executable_path='/Users/kt/Downloads/chromedriver')
+driver.get("https://web.whatsapp.com/") 
+
+
+wait = WebDriverWait(driver, 20)
+
+wait.until(EC.presence_of_element_located((
+        By.CLASS_NAME, 'iHhHL'
+ )))
+time.sleep(5)
+
+# get the local storage
+# storage = LocalStorage(driver)
+
+items = driver.execute_script( \
+            "var ls = window.localStorage, items = {}; " \
+            "for (var i = 0, k; i < ls.length; ++i) " \
+            "  items[k = ls.key(i)] = ls.getItem(k); " \
+            "return items; ")
+
+print(items)
+
+# for key in a:
+# 	driver.execute_script("window.localStorage.setItem(arguments[0], arguments[1]);", key, a[key])
+#   	print("%s: %s" % (key, a[key]))
+
+
+
+

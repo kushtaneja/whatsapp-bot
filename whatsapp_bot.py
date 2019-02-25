@@ -12,8 +12,8 @@ with open("left_Names.csv") as f:
     for row in f:
         namelist.append(row.split(',')[0])
 
-# a = {u'WAToken1': u'"t85PaRk6QPKW6M+V2euWcpa6ZV9kqbCdCBYtjv3NuOQ="', u'2Uls+st8KOZKAlLNKbVILw==': u'[{"id":"global_mute","expiration":0}]', u'storage_test': u'storage_test', u'WAToken2': u'"1@SKhgMCbleVVEyyQXyBgXGmCSlJ1xtj4f4BNQUGSl1057q7inrOUU4jSBux0w0ANlaAzqBh8c1nPt+Q=="', u'WALangPref': u'"en"', u'WASecretBundle': u'{"key":"D1yhj/W+oOcgAGoawwKCU0Wy/pmj6NWqXs26aUDaWQQ=","encKey":"5pgB7VUugg3DdTvGNUmStezBoeSQvPLuvIda1PokYEQ=","macKey":"D1yhj/W+oOcgAGoawwKCU0Wy/pmj6NWqXs26aUDaWQQ="}', u'last-wid': u'"919108904691@c.us"', u'ZXcdCxVHkMhU1JvJbvN9pQ==': u'false', u'logout-token': u'"1@TJc03l+RP8dNiX75isMlWEuOZjqjcU7eOrokUeMHhPNCZlqRkyDZPdrjiTpL8HIGuR7CbTVT+EMgD1fGeyN70m0Al/rEn25Duo6MAY7UMgyi4XWbf0BkbKF9Z+i/vLfbszzsrCHj+3hNl3sdmXDsTg=="', u'X8ahjfhRZepedxYLR9oOZQ==': u'"note.m4r"', u'ps7fTp/NEON3Q1UJoMLw9g==': u'false', u'whatsapp-mutex': u'"x391925103:init_1549893668136"', u'Dexie.DatabaseNames': u'["wawc"]', u'B5/ZHwUThP1mYU2nnsFF4Q==': u'false', u'remember-me': u'true', u'WABrowserId': u'"V6ByWH6p9mcIqLAPbvtK/A=="', u'mobile-platform': u'"smba"', u'ASvDGz3FYse4HogUrB/0BA==': u'false', u'debugCursor': u'198'}
-# dump = str(a)
+a = {u'WAToken1': u'"t85PaRk6QPKW6M+V2euWcpa6ZV9kqbCdCBYtjv3NuOQ="', u'2Uls+st8KOZKAlLNKbVILw==': u'[{"id":"global_mute","expiration":0}]', u'storage_test': u'storage_test', u'WAToken2': u'"1@SKhgMCbleVVEyyQXyBgXGmCSlJ1xtj4f4BNQUGSl1057q7inrOUU4jSBux0w0ANlaAzqBh8c1nPt+Q=="', u'WALangPref': u'"en"', u'WASecretBundle': u'{"key":"D1yhj/W+oOcgAGoawwKCU0Wy/pmj6NWqXs26aUDaWQQ=","encKey":"5pgB7VUugg3DdTvGNUmStezBoeSQvPLuvIda1PokYEQ=","macKey":"D1yhj/W+oOcgAGoawwKCU0Wy/pmj6NWqXs26aUDaWQQ="}', u'last-wid': u'"919108904691@c.us"', u'ZXcdCxVHkMhU1JvJbvN9pQ==': u'false', u'logout-token': u'"1@TJc03l+RP8dNiX75isMlWEuOZjqjcU7eOrokUeMHhPNCZlqRkyDZPdrjiTpL8HIGuR7CbTVT+EMgD1fGeyN70m0Al/rEn25Duo6MAY7UMgyi4XWbf0BkbKF9Z+i/vLfbszzsrCHj+3hNl3sdmXDsTg=="', u'X8ahjfhRZepedxYLR9oOZQ==': u'"note.m4r"', u'ps7fTp/NEON3Q1UJoMLw9g==': u'false', u'whatsapp-mutex': u'"x391925103:init_1549893668136"', u'Dexie.DatabaseNames': u'["wawc"]', u'B5/ZHwUThP1mYU2nnsFF4Q==': u'false', u'remember-me': u'true', u'WABrowserId': u'"V6ByWH6p9mcIqLAPbvtK/A=="', u'mobile-platform': u'"smba"', u'ASvDGz3FYse4HogUrB/0BA==': u'false', u'debugCursor': u'198'}
+dump = str(a)
 
 options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized")
@@ -35,12 +35,12 @@ message = message.encode('unicode_escape')
 filepath="/Users/kt/valentinesday.png"
 
 wait = WebDriverWait(driver, 20)
-wait5 = WebDriverWait(driver, 5)
+wait5 = WebDriverWait(driver, 10)
 wait20 = WebDriverWait(driver, 20)
 
-# for key in a:
-# 	driver.execute_script("window.localStorage.setItem(arguments[0], arguments[1]);", key, a[key])
-#   	print("%s: %s" % (key, a[key]))
+for key in a:
+	driver.execute_script("window.localStorage.setItem(arguments[0], arguments[1]);", key, a[key])
+  	print("%s: %s" % (key, a[key]))
 
 
 wait.until(EC.presence_of_element_located((
